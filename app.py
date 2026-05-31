@@ -614,7 +614,8 @@ st.write("Upload a PDF to generate structured study notes and ask questions from
 
 uploaded_file = st.file_uploader(
     "Upload your PDF (maximum 10 MB)",
-    type=["pdf"]
+    type=["pdf"],
+    max_upload_size=10
 )
 
 if uploaded_file is not None:
