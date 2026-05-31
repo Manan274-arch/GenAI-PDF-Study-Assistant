@@ -15,7 +15,10 @@ from groq import APIError, RateLimitError, APITimeoutError
 #Deciding on the model's and output variations based on the number of pages in the PDF
 load_dotenv()
 
-GROQ_API_KEY=st.secrets.get("GROQ_API_KEY",os.getenv("GROQ_API_KEY"))
+try:
+    GROQ_API_KEY=st.secrets["GROQ_API_KEY"]
+except Exception:
+    GROQ_API_KEY=os.getenv("GROQ_API_KEY")
 
 NOTES_MODEL = "llama-3.1-8b-instant"
 QA_MODEL = "llama-3.1-8b-instant"
