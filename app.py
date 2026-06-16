@@ -510,24 +510,7 @@ def calculate_final_notes_max_tokens(all_mini_notes):
     return final_max_tokens
 
 # This function combines all mini-notes into one final polished notes document.
-def smart_trim_text(text, max_chars):
-    if len(text) <= max_chars:
-        return text
-
-    first_part = text[:max_chars // 2]
-    last_part = text[-max_chars // 2:]
-
-    return (
-        first_part
-        + "\n\n[Some middle content was shortened due to model input limits.]\n\n"
-        + last_part
-    )
-
 def generate_final_notes(all_mini_notes):
-    #all_mini_notes = smart_trim_text(
-        #all_mini_notes,
-        #MAX_FINAL_NOTES_INPUT_CHARS
-    #)
 
     final_max_tokens = calculate_final_notes_max_tokens(all_mini_notes)
 
